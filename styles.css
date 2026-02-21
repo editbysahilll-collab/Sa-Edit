@@ -1,0 +1,397 @@
+:root {
+  --bg: #05070a;
+  --surface: rgba(13, 19, 28, 0.64);
+  --surface-2: rgba(20, 30, 43, 0.65);
+  --text: #f6f8ff;
+  --muted: #aab8d4;
+  --primary: #4ca0ff;
+  --primary-2: #e1edff;
+  --border: rgba(255, 255, 255, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+
+.gradient-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 15% 20%, rgba(76, 160, 255, 0.2), transparent 45%),
+    radial-gradient(circle at 83% 2%, rgba(214, 233, 255, 0.18), transparent 38%),
+    radial-gradient(circle at 45% 95%, rgba(76, 160, 255, 0.12), transparent 50%);
+  filter: blur(8px);
+}
+
+.section {
+  width: min(1120px, 92vw);
+  margin: 0 auto;
+  padding: 5.6rem 0;
+}
+
+.glass {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.35);
+}
+
+.navbar {
+  width: min(1120px, 92vw);
+  margin: 1rem auto 0;
+  padding: 0.8rem 1.1rem;
+  border-radius: 999px;
+  position: sticky;
+  top: 1rem;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.logo {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+}
+
+#main-nav {
+  margin-left: auto;
+  margin-right: 0.8rem;
+  display: flex;
+  gap: 1rem;
+}
+
+#main-nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.menu-toggle {
+  display: none;
+  margin-left: auto;
+  border: 1px solid var(--border);
+  border-radius: 0.7rem;
+  padding: 0.3rem 0.6rem;
+  background: var(--surface-2);
+  color: #fff;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: clamp(2rem, 6vw, 4.1rem);
+}
+
+h2 {
+  font-size: clamp(1.6rem, 4.2vw, 2.8rem);
+}
+
+.eyebrow {
+  margin: 0;
+  color: #8dbdff;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.subheadline,
+p {
+  color: var(--muted);
+}
+
+.hero {
+  min-height: 82vh;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 1.3rem;
+}
+
+.hero-copy {
+  color: #dce9ff;
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.75rem 1.2rem;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: linear-gradient(125deg, var(--primary), var(--primary-2));
+  color: #021430;
+  box-shadow: 0 10px 28px rgba(84, 164, 255, 0.45);
+}
+
+.btn-secondary {
+  border: 1px solid rgba(152, 193, 255, 0.45);
+  background: var(--surface-2);
+  color: #deebff;
+}
+
+.cta-row {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.centered {
+  justify-content: center;
+}
+
+.hero-visual {
+  display: grid;
+  gap: 1rem;
+}
+
+.floating-card,
+.video-mockup,
+.service-card,
+.price-card,
+.portfolio-card,
+.about-card,
+.faq-list details,
+.proof-item {
+  border-radius: 1.2rem;
+  padding: 1.1rem;
+}
+
+.floating-card {
+  animation: float 6s ease-in-out infinite;
+}
+
+.video-topbar {
+  display: flex;
+  gap: 0.34rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.video-topbar span {
+  width: 0.6rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #cce2ff;
+}
+
+.video-frame {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(150deg, rgba(76, 160, 255, 0.2), rgba(255, 255, 255, 0.06));
+  border-radius: 0.8rem;
+  margin-top: 0.7rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.playhead {
+  width: 30%;
+  height: 3px;
+  background: #d9ebff;
+  position: absolute;
+  bottom: 14%;
+  left: -35%;
+  animation: sweep 4s linear infinite;
+}
+
+.social-proof {
+  padding-top: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem;
+}
+
+.section-heading {
+  margin-bottom: 1.5rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.service-card ul {
+  padding-left: 1.1rem;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.preview {
+  border-radius: 0.9rem;
+  min-height: 170px;
+  margin-bottom: 0.8rem;
+  background-size: 200% 200%;
+  animation: gradientShift 7s ease infinite;
+}
+
+.preview-a {
+  background-image: linear-gradient(120deg, #1a2942, #3e76bd, #dcecff);
+}
+
+.preview-b {
+  background-image: linear-gradient(120deg, #1a2335, #2e5ea3, #7cb6ff);
+}
+
+.preview-c {
+  background-image: linear-gradient(120deg, #111d30, #265896, #d9ebff);
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.price {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #e7f2ff;
+}
+
+.price-card.highlight {
+  border-color: rgba(124, 185, 255, 0.9);
+}
+
+.faq-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.final-cta {
+  text-align: center;
+  padding-bottom: 7rem;
+}
+
+.floating-cta {
+  position: fixed;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  z-index: 50;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes sweep {
+  to {
+    left: 110%;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 960px) {
+  .hero,
+  .social-proof,
+  .services-grid,
+  .portfolio-grid,
+  .about,
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #main-nav {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    right: 0;
+    margin: 0;
+    border-radius: 1rem;
+    padding: 0.8rem;
+    background: rgba(9, 14, 22, 0.95);
+    border: 1px solid var(--border);
+    display: none;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  #main-nav.open {
+    display: flex;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+}
